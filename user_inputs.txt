@@ -1,0 +1,22 @@
+Electronics Product Quality Snapshot — Reflection
+
+1. Which transformation made the dataset safer to use?
+Answer: Converting price with pd.to_numeric(errors='coerce') made the filter safer. Text such as 'None' became a missing value that could be removed with a clear boolean condition.
+
+2. What is one useful pattern to investigate further?
+Answer: The next useful check is whether price bands show different rating patterns. The current sample describes highly rated products, but a larger sample is needed before making a pricing claim.
+
+3. How can the cleaned table support future machine learning work?
+Answer: The table provides consistent product titles, numeric prices, and numeric ratings. Those fields can be joined with review text and product identifiers later for recommendation, ranking, or customer satisfaction models.
+
+4. Why was a 100 row sample limit used for both datasets?
+Answer: The source files are very large, so a 100 row limit keeps exploration fast and avoids loading more data than the early analysis needs. The same limit also makes the review and metadata checks easy to repeat.
+
+5. Why are both CSV and Parquet formats useful?
+Answer: CSV is simple to open and share across many tools. Parquet preserves useful column types and is more efficient for analytical workflows, so keeping both formats supports quick inspection and future processing.
+
+6. What did the visualizations reveal about prices and ratings?
+Answer: The cleaned sample contains products across several price levels while all products meet the high rating filter. The charts help compare the price spread with the rating concentration, but the small sample is not enough to claim that price causes higher ratings.
+
+7. How can this project be presented in a portfolio?
+Answer: The project can be presented as a compact data preparation case study. It demonstrates bounded streaming, pandas cleaning, exception handling, export design, and visual communication in one repeatable workflow.
